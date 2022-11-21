@@ -37,7 +37,7 @@ def build_kmeans(X=None,k=10):
    km = KMeans(
     n_clusters=k, random_state=0
   )
-    return km
+   return km
 
 def assign_kmeans(km=None,X=None):
   y_pred = km.fit_predict(X)
