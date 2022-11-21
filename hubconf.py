@@ -15,49 +15,38 @@ from sklearn.metrics import homogeneity_score, completeness_score, adjusted_rand
 ###### PART 1 ######
 
 def get_data_blobs(n_points=100):
-  pass
-  # write your code here
-  # Refer to sklearn data sets
-  X, y = None
-  # write your code ...
+  X, y = make_blobs(
+    n_samples=n_points, n_features=2,
+    centers=3,random_state=0
+  )
   return X,y
 
 def get_data_circles(n_points=100):
-  pass
-  # write your code here
-  # Refer to sklearn data sets
-  X, y = None
-  # write your code ...
+  X, y = make_circles(
+    n_samples=n_points, shuffle=True,
+    factor=0.3, noise=0.05, random_state=0
+  )
   return X,y
-
 def get_data_mnist():
-  pass
-  # write your code here
-  # Refer to sklearn data sets
-  X,y = None
-  # write your code ...
+  digits = load_digits()
+  X=digits.data
+  y=digits.target
   return X,y
 
 def build_kmeans(X=None,k=10):
-  pass
-  # k is a variable, calling function can give a different number
-  # Refer to sklearn KMeans method
-  km = None # this is the KMeans object
-  # write your code ...
-  return km
+   km = KMeans(
+    n_clusters=k, random_state=0
+  )
+    return km
 
 def assign_kmeans(km=None,X=None):
-  pass
-  # For each of the points in X, assign one of the means
-  # refer to predict() function of the KMeans in sklearn
-  # write your code ...
-  ypred = None
+  y_pred = km.fit_predict(X)
   return ypred
 
 def compare_clusterings(ypred_1=None,ypred_2=None):
-  pass
-  # refer to sklearn documentation for homogeneity, completeness and vscore
-  h,c,v = 0,0,0 # you need to write your code to find proper values
+  h = "%.6f"% homogeneity_score(ypred_1, ypred_2)
+  c = "%.6f"% completeness_score(ypred_1, ypred_2)
+  v = "%.6f"% v_measure_score(ypred_1, ypred_2)
   return h,c,v
 
 ###### PART 2 ######
