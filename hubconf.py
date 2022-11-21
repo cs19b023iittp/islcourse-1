@@ -1,7 +1,11 @@
 import torch
 from torch import nn
 import torch.optim as optim
-
+from sklearn.datasets import make_blobs
+from sklearn.datasets import make_circles
+from sklearn.datasets import load_digits
+from sklearn.cluster import KMeans, AgglomerativeClustering, DBSCAN, Birch
+from sklearn.metrics import homogeneity_score, completeness_score, adjusted_rand_score, normalized_mutual_info_score, v_measure_score
 # You can import whatever standard packages are required
 
 # full sklearn, full pytorch, pandas, matplotlib, numpy are all available
